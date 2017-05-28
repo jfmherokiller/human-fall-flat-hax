@@ -52,6 +52,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="helperfunctions.cs" />
     <Compile Include="Helpers\Extensions\ColorExt.cs" />
     <Compile Include="Helpers\Extensions\GameObjectExt.cs" />
     <Compile Include="Helpers\Extensions\ResourceExt.cs" />
