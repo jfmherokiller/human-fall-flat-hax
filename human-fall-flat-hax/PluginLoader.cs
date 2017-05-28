@@ -3,64 +3,37 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
+using PluginContract;
 
 namespace human_fall_flat_hax
 {
     public static class PluginLoader
     {
-        public static ICollection<IPlugin> LoadPlugins(string path)
+        public static IEnumerable<IPlugin> GetPluginList(string path)
         {
-            string[] dllFileNames = null;
+            var pluginFiles = Directory.GetFiles(path, "plugin_*.dll");
 
-            if (Directory.Exists(path))
-            {
-                dllFileNames = Directory.GetFiles(path, "*.dll");
+            var pluginlist = (
+                // From each file in the files.
+                from file in pluginFiles
+                // Load the assembly.
+                let asm = Assembly.LoadFile(file)
+                // For every type in the assembly that is visible outside of
+                // the assembly.
+                from type in asm.GetExportedTypes()
+                // Where the type implements the interface.
+                where typeof(IPlugin).IsAssignableFrom(type)
+                // Create the instance.
+                select (IPlugin)Activator.CreateInstance(type)
+                // Materialize to an array.
+            );
+            return pluginlist;
+        }
 
-                ICollection<Assembly> assemblies = new List<Assembly>(dllFileNames.Length);
-                foreach (string dllFile in dllFileNames)
-                {
-                    AssemblyName an = AssemblyName.GetAssemblyName(dllFile);
-                    Assembly assembly = Assembly.Load(an);
-                    assemblies.Add(assembly);
-                }
-
-                Type pluginType = typeof(IPlugin);
-                ICollection<Type> pluginTypes = new List<Type>();
-                foreach (Assembly assembly in assemblies)
-                {
-                    if (assembly != null)
-                    {
-                        Type[] types = assembly.GetTypes();
-
-                        foreach (Type type in types)
-                        {
-                            if (type.IsInterface || type.IsAbstract)
-                            {
-                                continue;
-                            }
-                            else
-                            {
-                                if (type.GetInterface(pluginType.FullName) != null)
-                                {
-                                    pluginTypes.Add(type);
-                                }
-                            }
-                        }
-                    }
-                }
-
-                ICollection<IPlugin> plugins = new List<IPlugin>(pluginTypes.Count);
-                foreach (Type type in pluginTypes)
-                {
-                    IPlugin plugin = (IPlugin)Activator.CreateInstance(type);
-                    plugins.Add(plugin);
-                }
-
-                return plugins;
-            }
-
-            return null;
+        public static void InitializePlugins(string path)
+        {
+            var pluginlist = GetPluginList(path);
+            pluginlist.ToList().ForEach(plugin => plugin.initPlugin());
         }
     }
 }
