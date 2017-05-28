@@ -5,21 +5,13 @@ using System.Text;
 using UnityEngine;
 
 
-    public class helperfunctions
+public class helperfunctions
+{
+    public static void GetGameObjectsInScene()
     {
-        public static GameObject fakelink;
-        public static void GetGameObjectsInScene()
-        {
-            GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-            foreach (GameObject go in allObjects)
-                if (go.activeInHierarchy)
-                    Debug.Log(go.ToString());
-        }
-
-        public static void CreateGameObjectAndAttachClass<T>() where T : MonoBehaviour
-        {
-            fakelink = new GameObject("SceneHack");
-            fakelink.AddComponent<T>();
-            GameObject.DontDestroyOnLoad(fakelink);
-        }
+        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
+        foreach (GameObject go in allObjects)
+            if (go.activeInHierarchy)
+                Debug.Log(go.ToString());
     }
+}

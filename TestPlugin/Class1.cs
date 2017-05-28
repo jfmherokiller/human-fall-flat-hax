@@ -1,9 +1,8 @@
-﻿
-using PluginContract;
+﻿using PluginContract;
 
 namespace TestPlugin
 {
-    public class TestPlugin: IPlugin
+    public class TestPlugin : IPlugin
     {
         public string Name => "First Plugin";
 

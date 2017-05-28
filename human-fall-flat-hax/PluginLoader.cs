@@ -24,7 +24,7 @@ namespace human_fall_flat_hax
                 // Where the type implements the interface.
                 where typeof(IPlugin).IsAssignableFrom(type)
                 // Create the instance.
-                select (IPlugin)Activator.CreateInstance(type)
+                select (IPlugin) Activator.CreateInstance(type)
                 // Materialize to an array.
             );
             return pluginlist;

@@ -2,42 +2,41 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HumanFallFlatHelpers;
 using UnityEngine;
-    class tests
+
+class tests
+{
+    class bricktest : MonoBehaviour
     {
-        class bricktest : MonoBehaviour
+        void Start()
         {
-            public Transform brick;
-            void Start()
-            {
-                for (int y = 0; y < 5; y++)
-                {
-                    for (int x = 0; x < 5; x++)
-                    {
-                        Instantiate(brick, new Vector3(x, y, 0), Quaternion.identity);
-                    }
-                }
-            }
-        }
-        public class Hackobject : MonoBehaviour
-        {
-
-            void Update()
-            {
-                if (Input.GetKeyDown(KeyCode.F3))
-                {
-                    helperfunctions.GetGameObjectsInScene();
-                }
-            }
-            void OnGUI()
-            {
-                GUI.Label(new Rect(10, 10, 100, 20), "Hello World!");
-            }
-
-        }
-        public static void runtests()
-        {
-            //helperfunctions.CreateGameObjectAndAttachClass<bricktest>();
-            //helperfunctions.CreateGameObjectAndAttachClass<Hackobject>();
+            var playerposition = PlayerHelpers.GetPlayerHeadPosition();
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.AddComponent<Rigidbody>();
+            cube.transform.position = new Vector3(playerposition.x, playerposition.y, playerposition.z);
         }
     }
+
+    public class Hackobject : MonoBehaviour
+    {
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.F3))
+            {
+                GenericHelpers.CreateGameObjectAndAttachClassAndAllowDestory<bricktest>();
+            }
+        }
+
+        void OnGUI()
+        {
+            GUI.Label(new Rect(10, 10, 100, 20), "Hello World!");
+        }
+    }
+
+    public static void runtests()
+    {
+        //GenericHelpers.CreateGameObjectAndAttachClass<bricktest>();
+        GenericHelpers.CreateGameObjectAndAttachClass<Hackobject>();
+    }
+}

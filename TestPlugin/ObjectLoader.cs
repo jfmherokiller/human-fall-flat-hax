@@ -345,7 +345,7 @@ public class OBJ : MonoBehaviour
 
     private WWW GetTextureLoader(MaterialData m, string texpath)
     {
-        char[] separators = { '/', '\\' };
+        char[] separators = {'/', '\\'};
         var components = texpath.Split(separators);
         var filename = components[components.Length - 1];
         var ext = Path.GetExtension(filename).ToLower();

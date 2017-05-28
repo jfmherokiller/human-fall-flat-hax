@@ -4,30 +4,18 @@ using System.Linq;
 using System.Text;
 using PluginContract;
 using UnityEngine;
+using HumanAPI;
+using HumanFallFlatHelpers;
 
 namespace PlayerScalePlugin
 {
-    public class Class1: IPlugin
+    public class Class1 : IPlugin
     {
-       public static GameObject GetPlayerInstance()
-        {
-            var player = GameObject.Find("Player");
-            var playerclone = GameObject.Find("Player(Clone)");
-            if (player != null)
-            {
-                return player;
-            }
-            if (playerclone != null)
-            {
-                return playerclone;
-            }
-            return null;
-        }
-
         public string Name => "Player Scale Plugin";
+
         public void initPlugin()
         {
-            helperfunctions.CreateGameObjectAndAttachClass<GameObjectScaler>();
+            GenericHelpers.CreateGameObjectAndAttachClass<GameObjectScaler>();
         }
     }
 
@@ -37,7 +25,7 @@ namespace PlayerScalePlugin
         {
             if (Input.GetKeyDown(KeyCode.Keypad0))
             {
-                var playerinstance = Class1.GetPlayerInstance();
+                var playerinstance = PlayerHelpers.GetPlayerInstance();
                 if (playerinstance != null)
                 {
                     playerinstance.transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
@@ -45,7 +33,7 @@ namespace PlayerScalePlugin
             }
             if (Input.GetKeyDown(KeyCode.Keypad1))
             {
-                var playerinstance = Class1.GetPlayerInstance();
+                var playerinstance = PlayerHelpers.GetPlayerInstance();
                 if (playerinstance != null)
                 {
                     playerinstance.transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
