@@ -11,7 +11,8 @@ namespace human_fall_flat_hax
     {
         public static IEnumerable<IPlugin> GetPluginList(string path)
         {
-            var pluginFiles = Directory.GetFiles(path, "plugin_*.dll");
+            //make sure the files are sorted in alphabetical order so that some kind of load order can be imposed
+            var pluginFiles = Directory.GetFiles(path, "plugin_*.dll").OrderBy(f => f);
 
             var pluginlist = (
                 // From each file in the files.
