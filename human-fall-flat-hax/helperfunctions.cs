@@ -17,24 +17,13 @@ namespace human_fall_flat_hax
                     Debug.Log(go.ToString());
         }
 
-        public static void CreateGameObjectAndAttachClass(MonoBehaviour input)
+        public static void CreateGameObjectAndAttachClass<T>() where T : MonoBehaviour
         {
             fakelink = new GameObject("SceneHack");
-            fakelink.AddComponent<KeypressGameObject>();
+            fakelink.AddComponent<T>();
             GameObject.DontDestroyOnLoad(fakelink);
         }
     }
 
-    public class KeypressGameObject : MonoBehaviour
-    {
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.F3))
-            {
-                helperfunctions.GetGameObjectsInScene();
-            }
-        }
-
-    }
 }
