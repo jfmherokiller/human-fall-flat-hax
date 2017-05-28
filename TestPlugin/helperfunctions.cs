@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace human_fall_flat_hax
-{
+
     class helperfunctions
     {
         public static GameObject fakelink;
@@ -24,6 +23,3 @@ namespace human_fall_flat_hax
             GameObject.DontDestroyOnLoad(fakelink);
         }
     }
-
-
-}

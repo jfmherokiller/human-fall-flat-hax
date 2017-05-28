@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "human-fall-flat-hax", "huma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Realhooks", "Realhooks\Realhooks.csproj", "{4C7D688A-4BF4-44C9-A3DF-441224B5102D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlugin", "TestPlugin\TestPlugin.csproj", "{EC70705D-69EE-4BDD-9B89-B8D638191911}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4C7D688A-4BF4-44C9-A3DF-441224B5102D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C7D688A-4BF4-44C9-A3DF-441224B5102D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C7D688A-4BF4-44C9-A3DF-441224B5102D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC70705D-69EE-4BDD-9B89-B8D638191911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC70705D-69EE-4BDD-9B89-B8D638191911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC70705D-69EE-4BDD-9B89-B8D638191911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC70705D-69EE-4BDD-9B89-B8D638191911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

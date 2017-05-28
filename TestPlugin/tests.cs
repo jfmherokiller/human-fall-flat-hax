@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-
-namespace human_fall_flat_hax
-{
     class tests
     {
         class bricktest : MonoBehaviour
@@ -44,4 +41,3 @@ namespace human_fall_flat_hax
             helperfunctions.CreateGameObjectAndAttachClass<Hackobject>();
         }
     }
-}
