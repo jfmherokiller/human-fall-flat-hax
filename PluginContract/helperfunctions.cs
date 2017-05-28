@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 
-    class helperfunctions
+    public class helperfunctions
     {
         public static GameObject fakelink;
         public static void GetGameObjectsInScene()

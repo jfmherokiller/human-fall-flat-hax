@@ -38,6 +38,6 @@ using UnityEngine;
         public static void runtests()
         {
             //helperfunctions.CreateGameObjectAndAttachClass<bricktest>();
-            helperfunctions.CreateGameObjectAndAttachClass<Hackobject>();
+            //helperfunctions.CreateGameObjectAndAttachClass<Hackobject>();
         }
     }
