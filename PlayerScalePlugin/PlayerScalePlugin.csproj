@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PlayerScalePlugin</RootNamespace>
-    <AssemblyName>plugin_PlayerScale</AssemblyName>
+    <AssemblyName>plgm_PlayerScale</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -57,5 +57,6 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\HumanFallFlatHelpers\HumanFallFlatHelpers.projitems" Label="Shared" />
+  <Import Project="..\GenericUnityHelpers\GenericUnityHelpers.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

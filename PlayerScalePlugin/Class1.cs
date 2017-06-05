@@ -11,12 +11,15 @@ namespace PlayerScalePlugin
 {
     public class Class1 : IPlugin
     {
+        public bool isloaded { get; set; }
         public string Name => "Player Scale Plugin";
 
         public void initPlugin()
         {
+            isloaded = true;
             GenericHelpers.CreateGameObjectAndAttachClass<GameObjectScaler>();
         }
+
     }
 
     public class GameObjectScaler : MonoBehaviour

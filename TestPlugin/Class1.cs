@@ -5,6 +5,7 @@ namespace TestPlugin
     public class TestPlugin : IPlugin
     {
         public string Name => "First Plugin";
+        public bool isloaded { get; set; }
 
         void scenetest()
         {
@@ -13,7 +14,9 @@ namespace TestPlugin
 
         public void initPlugin()
         {
+            isloaded = true;
             tests.runtests();
         }
+        
     }
 }
