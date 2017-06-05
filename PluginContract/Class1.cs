@@ -9,6 +9,5 @@ namespace PluginContract
     {
         string Name { get; }
         void initPlugin();
-        bool isloaded { get; set; }
     }
 }

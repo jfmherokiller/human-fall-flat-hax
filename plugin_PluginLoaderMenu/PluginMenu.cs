@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using PluginContract;
 using UnityEngine;
-using UnityEngine.UI;
 using static plugin_PluginLoaderMenu.PluginMenuLoader;
 
 namespace plugin_PluginLoaderMenu
@@ -9,6 +9,7 @@ namespace plugin_PluginLoaderMenu
     public class PluginMenu : MonoBehaviour
     {
         private bool showmenu;
+
         void Update()
         {
             if (Input.GetKeyUp(KeyCode.BackQuote)) showmenu = !showmenu;
@@ -23,12 +24,9 @@ namespace plugin_PluginLoaderMenu
                 GUILayout.Label("Plugin Loader Menu");
                 foreach (var plugin in GetPluginList(Path.GetFullPath(Path.Combine(Application.dataPath, "Managed"))))
                 {
-                    if (!plugin.isloaded)
+                    if (GUILayout.Button(plugin.Name))
                     {
-                        if (GUILayout.Button(plugin.Name))
-                        {
-                            plugin.initPlugin();
-                        }
+                        plugin.initPlugin();
                     }
                 }
                 GUILayout.EndArea();
