@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace HumanFallFlatHelpers
+namespace GenericHelpersn
 {
-    class GenericHelpers
+    public static class GenericHelpers
     {
         private static GameObject Fakelink;
 

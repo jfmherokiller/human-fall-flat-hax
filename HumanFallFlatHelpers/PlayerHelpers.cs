@@ -1,10 +1,10 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using System.Text;
 using UnityEngine;
 
-namespace HumanFallFlatHelpers
+namespace FallFlatHelpers
 {
     static class PlayerHelpers
     {
@@ -51,6 +51,24 @@ namespace HumanFallFlatHelpers
                 return playerinstance.human.ragdoll.partHead.transform.position;
             }
             return new Vector3(0, 0, 0);
+        }
+
+        public static void AddComponentToPlayer<T>() where T : Component
+        {
+            var playerinstance = GetPlayerInstance();
+            if (playerinstance != null)
+            {
+                playerinstance.AddComponent<T>();
+            }
+        }
+
+        public static void RemoveComponentFromPlayer<T>() where T : Component
+        {
+            var playerinstance = GetPlayerInstance();
+            if (playerinstance != null)
+            {
+                Object.Destroy(playerinstance.GetComponent<T>());
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 ﻿
-using HumanFallFlatHelpers;
+using GenericHelpersn;
 using PluginContract;
 
 namespace plugin_PluginLoaderMenu

@@ -12,7 +12,7 @@ namespace plugin_PluginLoaderMenu
 
         void Update()
         {
-            if (Input.GetKeyUp(KeyCode.BackQuote)) showmenu = !showmenu;
+            if (Input.GetKeyUp(KeyCode.F1)) showmenu = !showmenu;
         }
 
         void OnGUI()

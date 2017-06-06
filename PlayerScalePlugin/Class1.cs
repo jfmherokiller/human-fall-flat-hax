@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FallFlatHelpers;
 using PluginContract;
 using UnityEngine;
 using HumanAPI;
-using HumanFallFlatHelpers;
+using GenericHelpersn;
 
 namespace PlayerScalePlugin
 {

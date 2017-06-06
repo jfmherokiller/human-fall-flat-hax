@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7E0277B-B105-466E-8B0D-F48BA4AA645F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>plgm_DebugConsole</RootNamespace>
+    <AssemblyName>plgm_DebugConsole</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>F:\SteamLibrary\steamapps\common\Human Fall Flat\Human_Data\Managed\UnityEngine.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>F:\SteamLibrary\steamapps\common\Human Fall Flat\Human_Data\Managed\UnityEngine.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="EasyConsole\Commands\ConsoleWatch.cs" />
+    <Compile Include="EasyConsole\Console.cs" />
+    <Compile Include="EasyConsole\FrontEnd\NGUI\ConsoleNGUI.cs" />
+    <Compile Include="EasyConsole\FrontEnd\UnityGUI\ConsoleGUI.cs" />
+    <Compile Include="EasyConsole\FrontEnd\UnityGUI\DevConsoleSkin.cs" />
+    <Compile Include="EasyConsole\FrontEnd\UnityGUI\file.cs" />
+    <Compile Include="EasyConsole\Homens\Console.cs" />
+    <Compile Include="EasyConsole\Homens\Containers.cs" />
+    <Compile Include="EasyConsole\Parsers\ConsoleParsers.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\LanguageSelection.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButton.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonActivate.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonColor.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonKeyBinding.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonKeys.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonMessage.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonOffset.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonPlayAnimation.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonRotation.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonScale.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonSound.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIButtonTween.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UICenterOnChild.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UICheckbox.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UICheckboxControlledComponent.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UICheckboxControlledObject.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIDragCamera.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIDraggableCamera.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIDraggablePanel.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIDragObject.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIDragPanelContents.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIForwardEvents.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIGrid.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIImageButton.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIInputValidator.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIPopupList.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UISavedOption.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UIScrollBar.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UISlider.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UISliderColors.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UISoundVolume.cs" />
+    <Compile Include="NGUI\Scripts\Interaction\UITable.cs" />
+    <Compile Include="NGUI\Scripts\Internal\ActiveAnimation.cs" />
+    <Compile Include="NGUI\Scripts\Internal\AnimationOrTween.cs" />
+    <Compile Include="NGUI\Scripts\Internal\BetterList.cs" />
+    <Compile Include="NGUI\Scripts\Internal\BMFont.cs" />
+    <Compile Include="NGUI\Scripts\Internal\BMGlyph.cs" />
+    <Compile Include="NGUI\Scripts\Internal\BMSymbol.cs" />
+    <Compile Include="NGUI\Scripts\Internal\ByteReader.cs" />
+    <Compile Include="NGUI\Scripts\Internal\IgnoreTimeScale.cs" />
+    <Compile Include="NGUI\Scripts\Internal\Localization.cs" />
+    <Compile Include="NGUI\Scripts\Internal\NGUIDebug.cs" />
+    <Compile Include="NGUI\Scripts\Internal\NGUIMath.cs" />
+    <Compile Include="NGUI\Scripts\Internal\NGUITools.cs" />
+    <Compile Include="NGUI\Scripts\Internal\SpringPanel.cs" />
+    <Compile Include="NGUI\Scripts\Internal\UIDrawCall.cs" />
+    <Compile Include="NGUI\Scripts\Internal\UIEventListener.cs" />
+    <Compile Include="NGUI\Scripts\Internal\UIGeometry.cs" />
+    <Compile Include="NGUI\Scripts\Internal\UINode.cs" />
+    <Compile Include="NGUI\Scripts\Internal\UIWidget.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\AnimatedAlpha.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\AnimatedColor.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\SpringPosition.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenAlpha.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenColor.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenFOV.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenOrthoSize.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenPosition.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenRotation.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenScale.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenTransform.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\TweenVolume.cs" />
+    <Compile Include="NGUI\Scripts\Tweening\UITweener.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIAnchor.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIAtlas.cs" />
+    <Compile Include="NGUI\Scripts\UI\UICamera.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIFilledSprite.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIFont.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIInput.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIInputSaved.cs" />
+    <Compile Include="NGUI\Scripts\UI\UILabel.cs" />
+    <Compile Include="NGUI\Scripts\UI\UILocalize.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIOrthoCamera.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIPanel.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIRoot.cs" />
+    <Compile Include="NGUI\Scripts\UI\UISlicedSprite.cs" />
+    <Compile Include="NGUI\Scripts\UI\UISprite.cs" />
+    <Compile Include="NGUI\Scripts\UI\UISpriteAnimation.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIStretch.cs" />
+    <Compile Include="NGUI\Scripts\UI\UITextList.cs" />
+    <Compile Include="NGUI\Scripts\UI\UITexture.cs" />
+    <Compile Include="NGUI\Scripts\UI\UITiledSprite.cs" />
+    <Compile Include="NGUI\Scripts\UI\UITooltip.cs" />
+    <Compile Include="NGUI\Scripts\UI\UIViewport.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="EasyConsole\FrontEnd\UnityGUI\Console.guiskin" />
+    <None Include="EasyConsole\Prefabs\Console.prefab" />
+    <None Include="EasyConsole\Prefabs\ConsoleNGUI.prefab" />
+    <None Include="NGUI\Resources\Shaders.meta" />
+    <None Include="NGUI\Resources\Shaders\Depth.shader" />
+    <None Include="NGUI\Resources\Shaders\Depth.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\GUI - Text Shader %28AlphaClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\GUI - Text Shader %28AlphaClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\GUI - Text Shader %28SoftClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\GUI - Text Shader %28SoftClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Additive Colored.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Additive Colored.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Depth.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Depth.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Dynamic Font %28AlphaClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Dynamic Font %28AlphaClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Dynamic Font %28SoftClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Dynamic Font %28SoftClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Dynamic Font.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Dynamic Font.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Masked Colored.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Premultiplied Colored %28AlphaClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Premultiplied Colored %28AlphaClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Premultiplied Colored %28SoftClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Premultiplied Colored %28SoftClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28AlphaClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28AlphaClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28HardClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28HardClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28Packed%29 %28AlphaClip%29 .shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28Packed%29 %28AlphaClip%29 .shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28Packed%29 %28SoftClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28Packed%29 %28SoftClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28Packed%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28Packed%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28SoftClip%29.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored %28SoftClip%29.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored Overlay.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored Overlay.shader.meta" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+    <None Include="NGUI\Resources\Shaders\Unlit - Transparent Colored.shader.meta" />
+    <None Include="NGUI\Scripts\Interaction\LanguageSelection.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButton.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonActivate.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonColor.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonKeyBinding.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonKeys.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonMessage.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonOffset.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonPlayAnimation.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonRotation.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonScale.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonSound.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIButtonTween.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UICenterOnChild.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UICheckbox.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UICheckboxControlledComponent.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UICheckboxControlledObject.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIDragCamera.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIDraggableCamera.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIDraggablePanel.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIDragObject.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIDragPanelContents.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIForwardEvents.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIGrid.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIImageButton.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIInputValidator.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIPopupList.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UISavedOption.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UIScrollBar.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UISlider.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UISliderColors.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UISoundVolume.cs.meta" />
+    <None Include="NGUI\Scripts\Interaction\UITable.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\ActiveAnimation.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\AnimationOrTween.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\BetterList.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\BMFont.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\BMGlyph.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\BMSymbol.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\ByteReader.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\IgnoreTimeScale.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\Localization.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\NGUIDebug.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\NGUIMath.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\NGUITools.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\SpringPanel.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\UIDrawCall.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\UIEventListener.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\UIGeometry.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\UINode.cs.meta" />
+    <None Include="NGUI\Scripts\Internal\UIWidget.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\AnimatedAlpha.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\AnimatedColor.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\SpringPosition.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenAlpha.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenColor.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenFOV.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenOrthoSize.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenPosition.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenRotation.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenScale.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenTransform.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\TweenVolume.cs.meta" />
+    <None Include="NGUI\Scripts\Tweening\UITweener.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UILabel.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UILocalize.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UIOrthoCamera.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UIPanel.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UIRoot.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UISlicedSprite.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UISprite.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UISpriteAnimation.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UIStretch.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UITextList.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UITexture.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UITiledSprite.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UITooltip.cs.meta" />
+    <None Include="NGUI\Scripts\UI\UIViewport.cs.meta" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EasyConsole\FrontEnd\UnityGUI\ConsoleBackground.png" />
+    <Content Include="NGUI\ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PluginContract\PluginContract.csproj">
+      <Project>{1DCEA408-2EAD-47FA-A3B8-2D6CC0225613}</Project>
+      <Name>PluginContract</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\GenericUnityHelpers\GenericUnityHelpers.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
