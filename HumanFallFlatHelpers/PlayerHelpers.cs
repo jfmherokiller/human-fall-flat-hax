@@ -1,7 +1,6 @@
 ﻿
-using System.Collections.Generic;
-using System.Net.NetworkInformation;
-using System.Text;
+
+
 using UnityEngine;
 
 namespace FallFlatHelpers
@@ -23,12 +22,12 @@ namespace FallFlatHelpers
             return null;
         }
 
-        public static Player GetPlayerMonoBehaviour()
+        public static MonoBehaviour GetPlayerMonoBehaviour()
         {
             var playerinstance = GetPlayerInstance();
             if (playerinstance != null)
             {
-                return playerinstance.GetComponent<MonoBehaviour>() as Player;
+                return playerinstance.GetComponent<MonoBehaviour>();
             }
             return null;
         }
@@ -45,7 +44,7 @@ namespace FallFlatHelpers
 
         public static Vector3 GetPlayerHeadPosition()
         {
-            var playerinstance = GetPlayerMonoBehaviour();
+            var playerinstance = GetPlayerMonoBehaviour() as Player;
             if (playerinstance != null)
             {
                 return playerinstance.human.ragdoll.partHead.transform.position;
