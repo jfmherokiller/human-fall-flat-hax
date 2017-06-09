@@ -128,7 +128,7 @@ namespace NVIDIA
     {
       if(!IsAvailable)
       {
-        Debug.LogError("Ansel is not available or enabled on this platform. Did you forget to whitelist your executable?");
+        //Debug.LogError("Ansel is not available or enabled on this platform. Did you forget to whitelist your executable?");
         return;
       }
 
@@ -137,40 +137,45 @@ namespace NVIDIA
 
       // Default coordinate system is left handed.
       // If your project is using different coordinate system please adjust accordingly
-      ConfigData config = new ConfigData();
-      config.right = new float[3] { 1, 0, 0 };
-      config.up = new float[3] { 0, 1, 0 };
-      config.forward = new float[3] { 0, 0, 1 };
-      // Can be set by user from the editor
-      config.translationalSpeedInWorldUnitsPerSecond = TranslationalSpeedInWorldUnitsPerSecond;
-      config.rotationalSpeedInDegreesPerSecond = RotationalSpeedInDegreesPerSecond;
-      config.captureLatency = CaptureLatency;
-      config.captureSettleLatency = CaptureSettleLatency;
-      config.metersInWorldUnit = MetersInWorldUnit;
-      // These should always be true unless there is some special scenario
-      config.isCameraOffcenteredProjectionSupported = true;
-      config.isCameraRotationSupported = true;
-      config.isCameraTranslationSupported = true;
-      config.isCameraFovSupported = true;
-      // This value can be used to allow users to run some cool filter through entire game
-      config.isFilterOutsideSessionAllowed = IsFilterOutsideSessionAllowed;
-      anselInit(ref config);
+        ConfigData config = new ConfigData
+        {
+            right = new float[3] {1, 0, 0},
+            up = new float[3] {0, 1, 0},
+            forward = new float[3] {0, 0, 1},
+            translationalSpeedInWorldUnitsPerSecond = TranslationalSpeedInWorldUnitsPerSecond,
+            rotationalSpeedInDegreesPerSecond = RotationalSpeedInDegreesPerSecond,
+            captureLatency = CaptureLatency,
+            captureSettleLatency = CaptureSettleLatency,
+            metersInWorldUnit = MetersInWorldUnit,
+            isCameraOffcenteredProjectionSupported = true,
+            isCameraRotationSupported = true,
+            isCameraTranslationSupported = true,
+            isCameraFovSupported = true,
+            isFilterOutsideSessionAllowed = IsFilterOutsideSessionAllowed
+        };
+        // Can be set by user from the editor
+        // These should always be true unless there is some special scenario
+        // This value can be used to allow users to run some cool filter through entire game
+        anselInit(ref config);
       
       // Ansel will return camera parameters here
       anselCam = new CameraData();
 
       // Default session configuration which allows everything.
       // Game can reconfigure session anytime session is not active by calling ConfigureSession.
-      SessionData ses = new SessionData();
-      ses.isAnselAllowed = true; // if false none of the below parameters is relevant
-      ses.isFovChangeAllowed = true;
-      ses.isHighresAllowed = true;
-      ses.isPauseAllowed = true;
-      ses.isRotationAllowed = true;
-      ses.isTranslationAllowed = true;
-      ses.is360StereoAllowed = true;
-      ses.is360MonoAllowed = true;
-      anselConfigureSession(ref ses);
+        SessionData ses = new SessionData
+        {
+            isAnselAllowed = true,
+            isFovChangeAllowed = true,
+            isHighresAllowed = true,
+            isPauseAllowed = true,
+            isRotationAllowed = true,
+            isTranslationAllowed = true,
+            is360StereoAllowed = true,
+            is360MonoAllowed = true
+        };
+        // if false none of the below parameters is relevant
+        anselConfigureSession(ref ses);
 
       print("Ansel is initialized and ready to use");
     }    
@@ -180,7 +185,7 @@ namespace NVIDIA
     {
       if (!IsAvailable)
       {
-        Debug.LogError("Ansel is not available or enabled on this platform. Did you forget to whitelist your executable?");
+        //Debug.LogError("Ansel is not available or enabled on this platform. Did you forget to whitelist your executable?");
         return;
       }
 
@@ -197,7 +202,7 @@ namespace NVIDIA
     {
       if (!IsAvailable)
       {
-        Debug.LogError("Ansel is not available or enabled on this platform. Did you forget to whitelist your executable?");
+        //Debug.LogError("Ansel is not available or enabled on this platform. Did you forget to whitelist your executable?");
         return;
       }
 

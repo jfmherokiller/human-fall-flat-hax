@@ -3,6 +3,7 @@
 using FallFlatHelpers;
 using NVIDIA;
 using PluginContract;
+using UnityEngine;
 using static Player;
 
 namespace plgm_AnselPlugin
@@ -10,10 +11,11 @@ namespace plgm_AnselPlugin
     public class Class1 : IPlugin
     {
         public string Name => "Ansel";
-        public void initPlugin()
+
+        private void loadAnsel()
         {
-            var playerstuff = PlayerHelpers.GetPlayerInstance();
-            var ansel = playerstuff.gameObject.AddComponent<Ansel>();
+            var player = PlayerHelpers.GetPlayerMonoBehaviour() as Player;
+            var camera = player.cameraController.gameCam.gameObject;
             var session = new Ansel.SessionData
             {
                 isAnselAllowed = true,
@@ -25,9 +27,13 @@ namespace plgm_AnselPlugin
                 is360StereoAllowed = false,
                 is360MonoAllowed = false
             };
-            // set to false to completely disable Ansel 
+            var ansel = camera.AddComponent<Ansel>();
+            Object.DontDestroyOnLoad(ansel);
             ansel.ConfigureSession(session);
-
+        }
+        public void initPlugin()
+        {
+            loadAnsel();
         }
     }
 }
