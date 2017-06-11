@@ -12,7 +12,7 @@ namespace plgm_DebugConsole
 
         public void initPlugin()
         {
-            var gameobj = new GameObject();
+            var gameobj = new GameObject("Console");
             var console = gameobj.AddComponent<Console>();
             var parser = gameobj.AddComponent<ConsoleParsers>();
             var watch = gameobj.AddComponent<ConsoleWatch>();

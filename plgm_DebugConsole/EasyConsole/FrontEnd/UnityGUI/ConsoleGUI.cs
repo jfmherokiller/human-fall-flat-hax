@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
 {
-    internal class ConsoleGUI : MonoBehaviour
+    class ConsoleGUI : MonoBehaviour
     {
         private string command = "";
         private int commandIndex;
@@ -39,18 +39,20 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
 
         public GUISkin skin = new DevConsoleSkin().myGUISkin;
         private bool wasCursorVisible;
+        private Console consoleinstance;
 
         private void Start()
         {
+            consoleinstance = GameObject.Find("Console").GetComponent<Console>();
             gamelistlabel = new GUIStyle(GUIStyle.none)
             {
                 name = "GameObjectListLabel",
                 normal = {textColor = new Color(1, 1, 1, 1)}
             };
 
-            displayObjects = Console.Instance.GetGameobjectsAtPath("/");
-            displayComponents = Console.Instance.GetComponentsOfGameobject("/");
-            displayMethods = Console.Instance.GetMethodsOfComponent("/");
+            displayObjects = consoleinstance.GetGameobjectsAtPath("/");
+            displayComponents = consoleinstance.GetComponentsOfGameobject("/");
+            displayMethods = consoleinstance.GetMethodsOfComponent("/");
 
             float height = Screen.height / 2;
             height -= skin.box.padding.top + skin.box.padding.bottom;
@@ -62,7 +64,7 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
             float width = Screen.width - 10;
             width -= hierarchyWidth;
             width -= skin.verticalScrollbar.CalcSize(new GUIContent("")).x;
-            Console.Instance.maxLineWidth = (int) (width / skin.label.CalcSize(new GUIContent("A")).x);
+            consoleinstance.maxLineWidth = (int) (width / skin.label.CalcSize(new GUIContent("A")).x);
         }
 
         private void OnGUI()
@@ -102,7 +104,7 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
                 GUILayout.BeginHorizontal();
 
                 GUILayout.BeginVertical();
-                var lines = Console.Instance.Lines;
+                var lines = consoleinstance.Lines;
                 // display last 10 lines
                 for (var i = lines.Count() - Mathf.Min(linesVisible, lines.Count()) - historyScrollValue;
                     i < lines.Count() - historyScrollValue;
@@ -119,15 +121,15 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
                     var firstDot = command.IndexOf('.');
                     if (firstDot == -1 || command.IndexOf('.', firstDot + 1) == -1)
                     {
-                        hierarchyScrollValue = GUILayout.BeginScrollView(hierarchyScrollValue, "box");
+                        hierarchyScrollValue = GUILayout.BeginScrollView(hierarchyScrollValue,"box");
                         foreach (var go in displayObjects)
                             if (GUILayout.Button(go, gamelistlabel))
                             {
                                 if (command.LastIndexOf('/') >= 0)
                                     command = command.Substring(0, command.LastIndexOf('/'));
                                 command += "/" + go.Replace(" ", "\\ ") + "/";
-                                displayObjects = Console.Instance.GetGameobjectsAtPath(command);
-                                displayComponents = Console.Instance.GetComponentsOfGameobject(command);
+                                displayObjects = consoleinstance.GetGameobjectsAtPath(command);
+                                displayComponents = consoleinstance.GetComponentsOfGameobject(command);
                                 moveCursorToEnd = true;
                             }
                         GUILayout.EndScrollView();
@@ -141,9 +143,9 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
                                 if (command.EndsWith("/"))
                                     command = command.Substring(0, command.Length - 1);
                                 command += "." + comp + ".";
-                                displayObjects = Console.Instance.GetGameobjectsAtPath(command);
-                                displayComponents = Console.Instance.GetComponentsOfGameobject(command);
-                                displayMethods = Console.Instance.GetMethodsOfComponent(command);
+                                displayObjects = consoleinstance.GetGameobjectsAtPath(command);
+                                displayComponents = consoleinstance.GetComponentsOfGameobject(command);
+                                displayMethods = consoleinstance.GetMethodsOfComponent(command);
                                 moveCursorToEnd = true;
                             }
                         GUILayout.EndScrollView();
@@ -171,17 +173,15 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
                 command = GUILayout.TextField(command);
                 if (!string.Equals(command, oldCommand, StringComparison.InvariantCulture))
                 {
-                    Debug.Log("String Compare Area");
-                    displayObjects = Console.Instance.GetGameobjectsAtPath(command);
-                    displayComponents = Console.Instance.GetComponentsOfGameobject(command);
-                    displayMethods = Console.Instance.GetMethodsOfComponent(command);
+                    displayObjects = consoleinstance.GetGameobjectsAtPath(command);
+                    displayComponents = consoleinstance.GetComponentsOfGameobject(command);
+                    displayMethods = consoleinstance.GetMethodsOfComponent(command);
                 }
                 GUILayout.EndHorizontal();
                 GUILayout.EndArea();
 
                 if (Event.current.type == EventType.repaint && moveCursorToEnd)
                 {
-                    Debug.Log("MoveCursorArea");
                     var te = (TextEditor) GUIUtility.GetStateObject(typeof(TextEditor), GUIUtility.keyboardControl);
                     te?.MoveTextEnd();
                     moveCursorToEnd = false;
@@ -189,12 +189,12 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
 
                 if (GUI.GetNameOfFocusedControl().Equals("CommandTextField") && returnPressed)
                 {
-                    Console.Instance.Print("> " + command);
-                    Console.Instance.Eval(command);
+                    consoleinstance.Print("> " + command);
+                    consoleinstance.Eval(command);
                     command = "";
                     commandIndex = 0;
-                    displayObjects = Console.Instance.GetGameobjectsAtPath(command);
-                    displayComponents = Console.Instance.GetComponentsOfGameobject(command);
+                    displayObjects = consoleinstance.GetGameobjectsAtPath(command);
+                    displayComponents = consoleinstance.GetComponentsOfGameobject(command);
                 }
 
                 if (GUI.GetNameOfFocusedControl().Equals("CommandTextField") && upPressed)
@@ -203,12 +203,12 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
                         partialCommand = command;
 
                     commandIndex++;
-                    var commandsCount = Console.Instance.Commands.Count();
+                    var commandsCount = consoleinstance.Commands.Count();
                     if (commandsCount > 0)
                     {
                         if (commandIndex > commandsCount) commandIndex--;
 
-                        command = Console.Instance.Commands.GetItemAt(commandsCount - 1 - (commandIndex - 1));
+                        command = consoleinstance.Commands.GetItemAt(commandsCount - 1 - (commandIndex - 1));
 
                         moveCursorToEnd = true;
                     }
@@ -217,13 +217,13 @@ namespace plgm_DebugConsole.EasyConsole.FrontEnd.UnityGUI
                 if (GUI.GetNameOfFocusedControl().Equals("CommandTextField") && downPressed)
                 {
                     commandIndex--;
-                    var commandsCount = Console.Instance.Commands.Count();
+                    var commandsCount = consoleinstance.Commands.Count();
                     if (commandIndex < 0) commandIndex = 0;
 
                     if (commandsCount > 0)
                     {
                         if (commandIndex > 0)
-                            command = Console.Instance.Commands.GetItemAt(commandsCount - 1 - (commandIndex - 1));
+                            command = consoleinstance.Commands.GetItemAt(commandsCount - 1 - (commandIndex - 1));
                         else
                             command = partialCommand;
 

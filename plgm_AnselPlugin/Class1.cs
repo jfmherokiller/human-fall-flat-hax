@@ -12,7 +12,7 @@ namespace plgm_AnselPlugin
     {
         public string Name => "Ansel";
 
-        private void loadAnsel()
+        private static void LoadAnsel()
         {
             var player = PlayerHelpers.GetPlayerMonoBehaviour() as Player;
             var camera = player.cameraController.gameCam.gameObject;
@@ -33,7 +33,7 @@ namespace plgm_AnselPlugin
         }
         public void initPlugin()
         {
-            loadAnsel();
+            LoadAnsel();
         }
     }
 }
