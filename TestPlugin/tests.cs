@@ -6,7 +6,6 @@ using GenericHelpersn;
 
 partial class tests
 {
-
     public static void runtests()
     {
         //GenericHelpers.CreateGameObjectAndAttachClass<bricktest>();

@@ -1,5 +1,5 @@
-﻿using GenericHelpersn;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 partial class tests
 {
@@ -15,7 +15,16 @@ partial class tests
         {
             if (Input.GetKeyDown(KeyCode.F3))
             {
-                GenericHelpers.CreateGameObjectAndAttachClassAndAllowDestory<Bricktest>();
+                //GenericHelpers.CreateGameObjectAndAttachClassAndAllowDestory<Bricktest>();
+                for (int sceneIndex = 0; sceneIndex < SceneManager.sceneCount; sceneIndex++)
+                {
+                    var sceneobject = SceneManager.GetSceneAt(sceneIndex);
+                    var scenename = sceneobject.name;
+                    var scenepath = sceneobject.path;
+                    var scenerootobjects = sceneobject.GetRootGameObjects();
+
+                    Debug.Log(scenename +":" +scenepath + ":" + scenerootobjects);
+                }
             }
         }
 

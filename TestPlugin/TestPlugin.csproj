@@ -45,7 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bricktest.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Hackobject.cs" />
     <Compile Include="ObjectLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="tests.cs" />
