@@ -45,12 +45,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PluginContract\PluginContract.csproj">
+    <ProjectReference Include="F:\OneDrive\Documents\Visual Studio 2017\Projects\human-fall-flat-hax\unity_plugin_manager\PluginContract\PluginContract.csproj">
       <Project>{1dcea408-2ead-47fa-a3b8-2d6cc0225613}</Project>
       <Name>PluginContract</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\HumanFallFlatHelpers\HumanFallFlatHelpers.projitems" Label="Shared" />
-  <Import Project="..\GenericUnityHelpers\GenericUnityHelpers.projitems" Label="Shared" />
+  <Import Project="F:\OneDrive\Documents\Visual Studio 2017\Projects\human-fall-flat-hax\unity_plugin_manager\GenericUnityHelpers\GenericUnityHelpers.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
