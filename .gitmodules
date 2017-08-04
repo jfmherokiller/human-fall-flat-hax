@@ -1,0 +1,3 @@
+[submodule "unity_plugin_manager"]
+	path = unity_plugin_manager
+	url = https://github.com/jfmherokiller/unity_plugin_manager.git
